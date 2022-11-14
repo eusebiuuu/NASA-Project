@@ -1,10 +1,12 @@
 const request = require('supertest');
 const app = require('../app');
+const { findHabitablePlanets } = require('../models/planets.model');
 const { connectToMongoDB, disconnectFromMongoDB } = require('../services/mongo');
 
 describe('Test launches API', () => {
     beforeAll(async () => {
         await connectToMongoDB();
+        await findHabitablePlanets();
     });
 
     afterAll(async () => {
