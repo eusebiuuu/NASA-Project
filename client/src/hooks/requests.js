@@ -1,4 +1,5 @@
-const BASE_URL = 'http://localhost:8000/v1';
+// const BASE_URL = 'http://localhost:8000/v1' (use only locally)
+const BASE_URL = 'v1';
 
 async function httpGetPlanets() {
   const response = await fetch(`${BASE_URL}/planets`);
@@ -13,7 +14,7 @@ async function httpGetLaunches() {
   const launches = await response.json();
   launches.sort((a, b) => {
     return a.flightNumber - b.flightNumber;
-  })
+  });
   return launches;
 }
 
